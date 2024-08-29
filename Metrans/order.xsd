@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<!-- Define the Order element -->
+	<xs:element name="Order">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- OrderHeader Definition -->
+				<xs:element name="OrderHeader">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Id" type="xs:positiveInteger"/>
+							<xs:element name="CustomerId" type="xs:positiveInteger"/>
+							<xs:element name="OrderDate" type="xs:date"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+				<!-- OrderDetails Definition -->
+				<xs:element name="OrderDetails">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Item" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Id" type="xs:positiveInteger"/>
+										<xs:element name="OrderId" type="xs:positiveInteger"/>
+										<xs:element name="ProductName" type="xs:string"/>
+										<xs:element name="Quantity" type="xs:positiveInteger"/>
+										<xs:element name="UnitPrice" type="xs:decimal"/>
+										<xs:element name="TotalPrice" type="xs:decimal"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+				<!-- OrderFooter Definition -->
+				<xs:element name="OrderFooter">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="TotalAmount" type="xs:decimal"/>
+							<xs:element name="Status" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

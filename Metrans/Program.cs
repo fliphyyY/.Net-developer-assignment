@@ -33,8 +33,8 @@ builder.Services.AddScoped<IOrderContext, OrderContext>();
 builder.Services.AddScoped<IDbCollectionGateway, DbCollectionGateway>();
 
 var host = builder.Build();
-var myOrderContext = host.Services.GetService<IOrderContext>();
 
+var myOrderContext = host.Services.GetService<IOrderContext>();
 
 myOrderContext.ValidateXml();
 await myOrderContext.DeserializeAndSaveToDb();

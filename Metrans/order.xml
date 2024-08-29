@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Order>
+    <OrderHeader>
+        <Id>1</Id>
+        <CustomerId>1</CustomerId>
+		<OrderDate>2024-08-28</OrderDate>
+    </OrderHeader>
+    <OrderDetails>
+        <Item>
+            <Id>1</Id>
+			<OrderId>1</OrderId>
+            <ProductName>Widget B</ProductName>
+            <Quantity>200</Quantity>
+            <UnitPrice>5.00</UnitPrice>
+            <TotalPrice>1000.00</TotalPrice>
+        </Item>
+        <Item>
+            <Id>2</Id>
+			<OrderId>1</OrderId>
+            <ProductName>XXXXXXXXXX</ProductName>
+            <Quantity>223400</Quantity>
+            <UnitPrice>5342.30</UnitPrice>
+            <TotalPrice>1020.1230</TotalPrice>
+        </Item>
+		<Item>
+            <Id>3</Id>
+			<OrderId>1</OrderId>
+            <ProductName>XXXXXXXXXX</ProductName>
+            <Quantity>223400</Quantity>
+            <UnitPrice>5342.30</UnitPrice>
+            <TotalPrice>1020.1230</TotalPrice>
+        </Item>
+		<Item>
+            <Id>4</Id>
+			<OrderId>1</OrderId>
+            <ProductName>XXXXXXXXXX</ProductName>
+            <Quantity>223400</Quantity>
+            <UnitPrice>5342.30</UnitPrice>
+            <TotalPrice>1020.1230</TotalPrice>
+        </Item>
+    </OrderDetails>
+    <OrderFooter>
+        <TotalAmount>2000.00</TotalAmount>
+        <Status>USD</Status>
+    </OrderFooter>
+</Order>

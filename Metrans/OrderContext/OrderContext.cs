@@ -12,9 +12,9 @@ namespace Metrans.OrderContext
     {
         private readonly IDbCollectionGateway myDbCollectionGateway;
         private readonly IMapper myMapper;
-
-        private readonly string xmlFile = Path.Combine(Directory.GetCurrentDirectory(), "order.xml");
-        private readonly string xsdFile = Path.Combine(Directory.GetCurrentDirectory(), "order.xsd");
+        private static string projectDirectoryPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+        private readonly string xmlFile = Path.Combine(projectDirectoryPath, "order.xml");
+        private readonly string xsdFile = Path.Combine(projectDirectoryPath, "order.xsd");
 
         public OrderContext(IDbCollectionGateway collectionGateway, IMapper mapper)
         {
@@ -23,30 +23,38 @@ namespace Metrans.OrderContext
         }
         public void ValidateXml()
         {
-
-            XmlSchemaSet schemas = new XmlSchemaSet();
-            schemas.Add("", xsdFile);
-
             XmlReaderSettings settings = new XmlReaderSettings();
-            settings.Schemas.Add(schemas);
-            settings.ValidationType = ValidationType.Schema;
-            settings.ValidationEventHandler += (sender, e) =>
-            {
-                Console.WriteLine($"{e.Severity}: {e.Message}");
-            };
 
-            using (XmlReader reader = XmlReader.Create(xmlFile, settings))
+            try
             {
-                try
+
+                XmlSchemaSet schemas = new XmlSchemaSet();
+                schemas.Add("", xsdFile);
+
+                settings.Schemas.Add(schemas);
+                settings.ValidationType = ValidationType.Schema;
+                settings.ValidationEventHandler += (sender, e) => { Console.WriteLine($"{e.Severity}: {e.Message}"); };
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Setting up schema failed: {ex.Message}");
+                throw new Exception();
+            }
+
+
+            try
+            {
+                using (XmlReader reader = XmlReader.Create(xmlFile, settings))
                 {
                     while (reader.Read()) { }
                     Console.WriteLine("XML is valid.");
                 }
-                catch (XmlSchemaValidationException ex)
-                {
-                    Console.WriteLine($"Validation failed: {ex.Message}");
-                    throw new XmlSchemaValidationException();
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Validation failed: {ex.Message}");
+                throw new Exception();
             }
 
         }
@@ -119,6 +127,6 @@ namespace Metrans.OrderContext
             }
         }
 
-        
+
     }
 }
