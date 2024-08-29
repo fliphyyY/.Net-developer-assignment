@@ -7,15 +7,15 @@ The application will include receiving and validating XML messages and designing
 
 1. Receipt and validation of EDI messages:
 
-* Implement a method that accepts an EDI message in XML format.
-* Validate the XML message against a simple XSD schema that contains the basic structure of the order (eg order ID, date, list of products).
-* Write the data into the database objects (see point 2).
+   * Implement a method that accepts an EDI message in XML format.
+   * Validate the XML message against a simple XSD schema that contains the basic structure of the order (eg order ID, date, list of products).
+   * Write the data into the database objects (see point 2).
 
 2. Database model design:
    
-* Based on the structure of the XML message, design a database model for storing data from the EDI message.
-* The model should include the design of at least one main table (e.g. orders) and one or more secondary tables (e.g. order items).
-* Describe the relationships between the tables.
+   * Based on the structure of the XML message, design a database model for storing data from the EDI message.
+   * The model should include the design of at least one main table (e.g. orders) and one or more secondary tables (e.g. order items).
+   * Describe the relationships between the tables.
 
 # My Solution
  
