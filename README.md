@@ -1,4 +1,4 @@
-# **Metrans .Net developer assignment**
+# **.Net developer assignment**
 Your task is to design and implement a simple application in .NET that will process EDI messages in XML format.
 
 The application will include receiving and validating XML messages and designing a database model to store this data.
